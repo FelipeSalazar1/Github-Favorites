@@ -19,9 +19,9 @@ export class Favorites {
 
   async add(username) {
     try {
-      const userExists = this.entries.find(entry => entry.login === username)
-      if(userExists) {
-        throw new Error('Usuário já cadastrado')
+      const userExists = this.entries.find((entry) => entry.login === username);
+      if (userExists) {
+        throw new Error("Usuário já cadastrado");
       }
 
       const user = await GithubUser.search(username);
@@ -75,15 +75,13 @@ export class FavoritesView extends Favorites {
     this.entries.forEach((user) => {
       const row = this.createRow();
 
-      row.querySelector(
-        ".user img"
-      ).src = `https://github.com/${user.login}.png`;
+      row.querySelector(".user img").src = `https://github.com/${user.login}.png`;
       row.querySelector(".user img").alt = `Imagem de ${user.name}`;
       row.querySelector(".user a").href = `https://github.com/${user.login}`;
-      row.querySelector(".user p").textCotent = user.name;
-      row.querySelector(".user span").textCotent = user.login;
-      row.querySelector(".repositories").textCotent = user.public_repos;
-      row.querySelector(".followers").textCotent = user.followers;
+      row.querySelector(".user p").textContent = user.name;
+      row.querySelector(".user span").textContent = user.login;
+      row.querySelector(".repositories").textContent = user.public_repos;
+      row.querySelector(".followers").textContent = user.followers;
 
       row.querySelector(".remove").onclick = () => {
         const isOk = confirm("Tem certeza que deseja deletar essa linha?");
@@ -101,14 +99,14 @@ export class FavoritesView extends Favorites {
 
     tr.innerHTML = `
       <td class="user">
-        <img src="https://github.com/diego3g.png" alt="imagem de diego3g">
-        <a href="https://github.com/diego3g" target="_blank">
-          <p>Diego Fernanades</p>
-          <span>diego3g</span>
+        <img src="" alt="imagem de diego3g">
+        <a href="" target="_blank">
+          <p></p>
+          <span></span>
         </a>
       </td>
-      <td class="repositories"> 48 </td>
-      <td class="followers"> 22503 </td>
+      <td class="repositories"></td>
+      <td class="followers"></td>
       <td>
         <button class="remove">&times;</button>
       </td>

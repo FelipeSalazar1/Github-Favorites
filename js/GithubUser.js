@@ -8,7 +8,7 @@ export class GithubUser {
         login,
         name,
         public_repos,
-        followers,
+        followers
       }));
   }
 }
